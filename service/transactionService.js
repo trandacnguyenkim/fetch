@@ -23,8 +23,6 @@ async function addPoints(req){
         }
     }
     catch(error){
-        console.log(error);
-        
         throw new Error(error);
     }
     
@@ -88,8 +86,7 @@ async function spendPoints(points){
                 $inc: { points: payload[element] },
             })
             spendList.push({"payer": element, "points":payload[element]});
-        }
-        
+        }        
         return spendList;
     }
     catch(error){        

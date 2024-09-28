@@ -26,19 +26,13 @@ app.post('/add', async (req, res) => {
 app.post('/spend', async (req, res) => {
     try{
         const {points} = req.body;
-        
-        const payload = transactionService.spendPoints(points);
-        
-
+        const payload = await transactionService.spendPoints(points);
         if (payload.length === 0){
             return res.status(400).send("User does not have enough points")
         }
-
         return res.status(200).send(payload);
     }
     catch(error){
-        console.log(error);
-        
         return res.status(500).send("Spend failed");
     }
 })
