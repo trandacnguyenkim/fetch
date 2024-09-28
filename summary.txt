@@ -1,0 +1,32 @@
+1. I chose Node.js because it is a widely used language for backend development, offering robust support for both mobile and web applications, 
+along with a rich ecosystem of convenient libraries. For the database, I opted for MongoDB due to its flexibility and ability to handle diverse data structures 
+efficiently.
+
+2. 
+Advantage: My code is designed into a model, service, and controller, which promotes a clear separation of concerns, enhances maintainability,
+and improves code organization, making it easier to test and modify individual components without affecting the entire application. This architectural approach 
+also facilitates collaboration among team members, as different developers can work on models, services, and controllers independently. Additionally, this structure
+allows for better scalability, enabling the application to grow more easily by adding new features or services without requiring extensive changes to existing code,
+ultimately leading to a more robust and flexible application.
+
+Disadvantage: This backend can currently run locally, and the .env file is being shared publicly, which poses a security risk by exposing sensitive information 
+such as database credentials. I don’t yet have a solution to connect to the database without sharing this information on Git, but ideally, these credentials 
+should be kept hidden to prevent unauthorized access and ensure the security of the application. 
+Also there is an edge case where for example if the user add point in this order: 
+    { "payer": "DANNON", "points": 300, "timestamp": "2022-10-31T10:00:00Z" }
+    { "payer": "UNILEVER", "points": 200, "timestamp": "2022-10-31T11:00:00Z" }
+    { "payer": "MILLER COORS", "points": 10000, "timestamp": "2022-11-01T14:00:00Z" }
+    { "payer": "DANNON", "points": -200, "timestamp": "2022-11-02T14:00:00Z" }
+
+    and then spend 5000 points. Dannon only have total of 100 points but my current implementation will spend 300 points of Dannon and stop at Miller Coors, which take more than what Dannon have.
+    But other than that case the other case should work fine.
+
+3. My most favorite project is my undergraduate capstone project, where I collaborated with a team of six to create an iOS app designed for busy individuals who 
+want to learn coding. What sets our app apart from existing learning platforms is its accessibility on users' phones, allowing them to learn on the go, anytime 
+and anywhere. We developed the app using Swift and utilized AWS S3 for user data storage. My primary responsibility was to manage the backend, which included 
+integrating AWS S3, Apple Authentication, and UserDefaults to track user information and progress. This project marked my first experience coding in Swift and 
+working with AWS S3, so it took me some time to get up to speed, but I genuinely enjoyed the learning process. Along the way, we encountered several bugs that 
+required teamwork and problem-solving, which I found particularly rewarding. Ultimately, we had the opportunity to present our project at the 
+Undergraduate Research Presentation, where we won first prize. I thoroughly enjoyed this project because it allowed me to learn a new programming language, 
+work with an amazing team, and, most importantly, create a product that made a positive impact. We later utilized the app in our Girls Who Code organization, 
+where we volunteered to teach female high school students computer science, significantly enhancing their learning experience.
